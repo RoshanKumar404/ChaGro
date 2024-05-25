@@ -1,48 +1,54 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import * as React from "react";
+
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import * as Screens from "../Screens/Index"
 import NavigationsStrings from "../constants/NavigationsStrings";
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 const Tab = createBottomTabNavigator();
 
-export default function MyTabs() {
-  return (
-    <Tab.Navigator
-      initialRouteName="Feed"
-      screenOptions={{
-        tabBarActiveTintColor: '#e91e63',
-      }}
-    >
-      <Tab.Screen
-        name="Feed"
-        component={NavigationsStrings.HOMEsCREEN}
-        options={{
-          tabBarLabel: 'Home',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Notifications"
-        component={NavigationsStrings.CHATS}
-        options={{
-          tabBarLabel: 'Updates',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="bell" color={color} size={size} />
-          ),
-          tabBarBadge: 3,
-        }}
-      />
-      <Tab.Screen
-        name="Profile"
-        component={Profile}
-        options={{
-          tabBarLabel: 'Profile',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="account" color={color} size={size} />
-          ),
-        }}
-      />
-    </Tab.Navigator>
-  );
+export default function MyTab() {
+    return (
+
+        <Tab.Navigator initialRouteName={NavigationsStrings.HOMEsCREEN}
+            screenOptions={{
+                tabBarActiveTintColor: "#49ace9",
+                tabBarInactiveTintColor: "black"
+            }}
+        >
+
+            <Tab.Screen name={NavigationsStrings.HOMEsCREEN} component={Screens.HomeScreen}
+                options={{
+                    tabBarLabel: 'Home',
+                    tabBarIcon: ({ color, size }) => (
+                        <MaterialCommunityIcons name="home" color={color} size={size} />
+                    ),
+                }} />
+            <Tab.Screen name={NavigationsStrings.CHATS} component={Screens.ChatScreen}
+                options={{
+                    tabBarLabel: 'Chat',
+                    tabBarIcon: ({ color, size }) => (
+                        <MaterialCommunityIcons name="chat" color={color} size={size} />
+                    ),
+                }}
+            />
+            <Tab.Screen name={NavigationsStrings.STATUS} component={Screens.Status}
+                options={{
+                    tabBarLabel: "Status",
+                    tabBarIcon: ({ size, color }) => (
+                        <MaterialCommunityIcons name="adjust" color={color} size={size} />
+                    )
+                }} />
+            <Tab.Screen name={NavigationsStrings.CALLS} component={Screens.Call}
+
+                options={{
+                    tabBarLabel: "Call",
+                    tabBarIcon: ({ size, color }) => (
+                        <MaterialCommunityIcons name="phone" color={color} size={size} />
+                    )
+                }}
+            />
+        </Tab.Navigator>
+
+    );
 }

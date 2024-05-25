@@ -8,5 +8,6 @@ export default{
      TERMSANDCONDITIONS:"TermsAndCondition",
      PHONENUMBER:"PhoneNumber",
      EDITPROFILE:"Editprofile",
-     HOMEsCREEN:"HomeScreen"
+     HOMEsCREEN:"HomeScreen",
+     TABROUTES:"MyTab"
 }
