@@ -1,4 +1,4 @@
-[
+const Countrylist=[
     {
         "name": "Afghanistan",
         "dialCode": "+93",
@@ -1476,3 +1476,4 @@
         "flag": "https://cdn.kcak11.com/CountryFlags/countries/zw.svg"
     }
 ]
+export default Countrylist;
