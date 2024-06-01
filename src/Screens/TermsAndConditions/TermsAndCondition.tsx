@@ -4,6 +4,7 @@ import NavigationsStrings from '../../constants/NavigationsStrings'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import ImagePath from '../../constants/ImagePath'
 import strings from '../../constants/languages'
+import { height, moderateScale, textScale, width } from '../../constants/Responsivedesign'
 
 export default function TermsAndCondition({navigation}) {
  
@@ -12,8 +13,8 @@ export default function TermsAndCondition({navigation}) {
        <SafeAreaView  >
         <Image source={ImagePath.logoImage2}
         //resizeMode='contain'
-        style={{width:413,
-          height:600,padding:20
+        style={{width:width,
+          height:height/1.6,padding:10
         }}/>
         <Text style={{fontWeight:'bold',fontSize:28,color:"#6e607b", alignSelf:"center"}}>{strings.WELCOME_TO_CHATGRO}</Text>
         <View style={{margin:10}}>        

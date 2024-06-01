@@ -1,12 +1,12 @@
 import { StyleSheet, Text, Button, View, TouchableOpacity, FlatList, TextInput } from 'react-native';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Modal from 'react-native-modal';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Countrylist from './Countrylist.tsx'; 
 import PhoneNumber from './PhoneNumber.tsx';
 
-export default function ListCountry({setphonenumber}) {
+ function ListCountry({setphonenumber}) {
     const [listVisible, setListVisible] = useState(false);
     const [data, setData] = useState(Countrylist);
     const [selectedCountry, setSelectedCountry] = useState('tap the arrow to select your coutry')
@@ -21,16 +21,15 @@ export default function ListCountry({setphonenumber}) {
         setselectedcountrydialcode(country.dialCode)
         setListVisible(false)
     }
+    const renderItem=useCallback(({ item })=>{  return (
+        <View style={styles.CountryList}>
+            <TouchableOpacity onPress={() => selectcountry(item)}>
+                <Text style={styles.countrtylistdata}>{item.name} ({item.dialCode})</Text>
+            </TouchableOpacity>
+        </View>
+    );},[data])
 
-    const renderItem = ({ item }) => {
-        return (
-            <View style={styles.CountryList}>
-                <TouchableOpacity onPress={() => selectcountry(item)}>
-                    <Text style={styles.countrtylistdata}>{item.name} ({item.dialCode})</Text>
-                </TouchableOpacity>
-            </View>
-        );
-    };
+   
 
     const onViewableItemsChanged = ({ viewableItems, changed }) => {
         viewableItems.forEach(viewableItem => {
@@ -142,3 +141,4 @@ const styles = StyleSheet.create({
         margin: 10,
     }
 });
+export default React.memo(ListCountry);

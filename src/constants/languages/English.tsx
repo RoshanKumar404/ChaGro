@@ -9,7 +9,8 @@ export default{
     //phonnumber screen 
 
     DONE:"Done",
-    GENERAL_MESSAGE: "Our team will send you a OTP to verify your number (carrier charges may apply)"
+    GENERAL_MESSAGE: "Our team will send you a OTP to verify your number (carrier charges may apply)",
+    GENERAL_MESSAGE_TO_OTP:"enter the otp that we have sent to the entered phone number",
 
 
 
