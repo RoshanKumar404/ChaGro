@@ -57,6 +57,7 @@ export default function OtpVerification({ navigation }) {
             Add your WOW! picture here
           </Text>
         </View>
+        
       </SafeAreaView>
     </View>
   );
