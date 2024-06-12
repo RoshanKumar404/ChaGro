@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AuthStack from './AuthStack';
 import MainStack from './MainStack';
 import MyTabs from './Tabroutes';
+import { useSelector } from 'react-redux';
 
 function HomeScreen() {
   return (
@@ -20,10 +21,13 @@ function HomeScreen() {
 const Stack = createNativeStackNavigator();
 
 function Routes() {
+  const useerData=useSelector(state=>state.auth.userData)
+  //console.log("values",useerData);
+  
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown:false}}>
-        {false?<>{MainStack(Stack)}</>:<>{AuthStack(Stack)}</>}
+        {!!useerData?._id?<>{AuthStack(Stack)}</>:<>{MainStack(Stack)}</>}
         
       </Stack.Navigator>
     </NavigationContainer>

@@ -10,10 +10,10 @@ export default function PhoneNumber({ navigation }) {
 const [phonenumber, setphonenumber]=useState('')
 const donebutton=()=>{
 if(phonenumber.trim()===''){
-  Alert.alert("plz enter ther phonenumber")
+  Alert.alert("plz enter the phonenumber")
 }
-else{ Alert.alert("Otp Sent")
-  navigation.navigate(NavigationsStrings.OTPVERIFICATION)
+else{ Alert.alert("your OTP is 942353")
+  navigation.navigate(NavigationsStrings.EDITPROFILE,{phonenumber})
 }
 
 }

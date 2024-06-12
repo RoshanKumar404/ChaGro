@@ -15,7 +15,7 @@ export default function OtpVerification({ navigation }) {
   });
 
   const donebutton = () => {
-    navigation.navigate(NavigationsStrings.OTPVERIFICATION);
+    navigation.navigate(NavigationsStrings.HOMEsCREEN);
   };
 
   const addPicture = async () => {
