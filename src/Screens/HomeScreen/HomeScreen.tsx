@@ -4,7 +4,8 @@ import React from 'react'
 export default function HomeScreens() {
   return (
     <View style={styles.container}>
-      <Text>HomeScreen</Text>
+      <Text>HomeScreen jia sri ram</Text>
+      
     </View>
   )
 }

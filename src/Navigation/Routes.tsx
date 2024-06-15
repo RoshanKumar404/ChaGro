@@ -27,7 +27,7 @@ function Routes() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown:false}}>
-        {!!useerData?._id?<>{AuthStack(Stack)}</>:<>{MainStack(Stack)}</>}
+        {!!useerData?._id?<>{MainStack(Stack)}</>:<>{AuthStack(Stack)}</>}
         
       </Stack.Navigator>
     </NavigationContainer>

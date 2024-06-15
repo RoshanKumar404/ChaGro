@@ -6,6 +6,7 @@ import React from "react";
 // OtpVerification
 import * as Screens from "../Screens/Index"
 import NavigationsStrings from "../constants/NavigationsStrings";
+import MyTab from "./Tabroutes";
 export default function (Stack) {
     return (
 
@@ -14,6 +15,8 @@ export default function (Stack) {
             <Stack.Screen name={NavigationsStrings.PHONENUMBER} component={Screens.PhoneNumber} />
             <Stack.Screen name={NavigationsStrings.OTPVERIFICATION} component={Screens.OtpVerification} />
             <Stack.Screen name={NavigationsStrings.EDITPROFILE} component={Screens.Editprofile} />
+            <Stack.Screen name={NavigationsStrings.HOMEsCREEN} component={MyTab} />
+
 
         </>
     )

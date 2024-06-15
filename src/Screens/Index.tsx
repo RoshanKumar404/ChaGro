@@ -14,6 +14,6 @@ export {default as Call}  from './calls/Call'
 export {default as TermsAndCondition} from './TermsAndConditions/TermsAndCondition'
 
 export {default as PhoneNumber} from './phonenumber/PhoneNumber'
+export {default as Editprofile} from './EditProfiles/EditProfiles'
 export {default as OtpVerification} from './OtpVerification/OtpVerification'
-export {default as Editprofile} from './EditProfile/Editprofile'
-
+//export {default as HomeScreen} from './HomeScreen/HomeScreen'

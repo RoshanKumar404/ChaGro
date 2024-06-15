@@ -5,6 +5,7 @@ import strings from '../../constants/languages';
 import NavigationsStrings from '../../constants/NavigationsStrings';
 import ListCOuntry from './ListCOuntry';
 
+//mera code hai
 
 export default function PhoneNumber({ navigation }) {
 const [phonenumber, setphonenumber]=useState('')
@@ -13,7 +14,7 @@ if(phonenumber.trim()===''){
   Alert.alert("plz enter the phonenumber")
 }
 else{ Alert.alert("your OTP is 942353")
-  navigation.navigate(NavigationsStrings.EDITPROFILE,{phonenumber})
+  navigation.navigate(NavigationsStrings.OTPVERIFICATION,{phonenumber})
 }
 
 }
