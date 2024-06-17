@@ -5,6 +5,7 @@ import MyTab from "./Tabroutes";
 
 export default function(Stack){
    return( <>
+    <Stack.Screen name={NavigationsStrings.EDITPROFILE} component={Screens.Editprofile} />
      <Stack.Screen name={NavigationsStrings.TABROUTES} component={MyTab}/>
     <Stack.Screen name={NavigationsStrings.CHATS} component={Screens.ChatScreen}/>
     <Stack.Screen name={NavigationsStrings.STATUS} component={Screens.Status}/>

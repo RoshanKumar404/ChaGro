@@ -14,8 +14,8 @@ export default function (Stack) {
             <Stack.Screen name={NavigationsStrings.TERMSANDCONDITIONS} component={Screens.TermsAndCondition} />
             <Stack.Screen name={NavigationsStrings.PHONENUMBER} component={Screens.PhoneNumber} />
             <Stack.Screen name={NavigationsStrings.OTPVERIFICATION} component={Screens.OtpVerification} />
-            <Stack.Screen name={NavigationsStrings.EDITPROFILE} component={Screens.Editprofile} />
-            <Stack.Screen name={NavigationsStrings.HOMEsCREEN} component={MyTab} />
+            {/* <Stack.Screen name={NavigationsStrings.EDITPROFILE} component={Screens.Editprofile} /> */}
+            {/* <Stack.Screen name={NavigationsStrings.HOMEsCREEN} component={MyTab} /> */}
 
 
         </>

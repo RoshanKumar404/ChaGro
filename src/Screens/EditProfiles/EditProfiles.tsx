@@ -19,7 +19,7 @@ export default function Editprofile() {
   
 
   const donebutton = () => {
-    navigation.navigate(NavigationsStrings.HOMEsCREEN);
+    navigation.navigate(NavigationsStrings.TABROUTES);
   };
 
   const addPicture = async () => {
