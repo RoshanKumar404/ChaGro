@@ -1,3 +1,4 @@
+// EditProfile.js
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -8,23 +9,34 @@ import { moderateScale } from '../../constants/Responsivedesign';
 import ImagePicker from 'react-native-image-crop-picker';
 import { androidCameraPermission } from '../../constants/Permissions';
 import { useNavigation } from '@react-navigation/native';
-// import MainStack from '../../Navigation/MainStack';
+import { signup } from '../../ReduxPart/action/ActionAuth';
 
-export default function Editprofile() {
+export default function EditProfile() {
   const [state, setState] = useState({
     image: "",
     name: ""
   });
-  const navigation=useNavigation();
-  
+  const navigation = useNavigation();
 
-  const donebutton = () => {
-    navigation.navigate(NavigationsStrings.TABROUTES);
+  const doneButton = async () => {
+    let apiData = {
+      ...state
+    };
+    try {
+      const res = await signup(apiData);
+      if (!!res?.data) {
+        navigation.navigate(NavigationsStrings.TABROUTES, { data: { ...state } });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    console.log(apiData, "api-data");
+    return;
   };
 
   const addPicture = async () => {
-    const Permissions = await androidCameraPermission();
-    if (Permissions) {
+    const permissions = await androidCameraPermission();
+    if (permissions) {
       ImagePicker.openPicker({
         width: 300,
         height: 400,
@@ -42,10 +54,8 @@ export default function Editprofile() {
     <View style={styles.container}>
       <SafeAreaView>
         <View style={styles.headerContainer}>
-          <Text style={styles.header}>
-            Complete your Profilee!!!!
-          </Text>
-          <TouchableOpacity style={styles.doneButton} onPress={donebutton}>
+          <Text style={styles.header}>Complete your Profile!</Text>
+          <TouchableOpacity style={styles.doneButton} onPress={doneButton}>
             <Text style={styles.doneText}>{strings.DONE}</Text>
           </TouchableOpacity>
         </View>
@@ -61,7 +71,6 @@ export default function Editprofile() {
             Add your WOW! picture here
           </Text>
         </View>
-        
       </SafeAreaView>
     </View>
   );

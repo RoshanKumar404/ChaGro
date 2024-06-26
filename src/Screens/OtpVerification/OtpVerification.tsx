@@ -1,45 +1,42 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-
-import React, { useState } from 'react'
+// OtpVerification.js
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
 import strings from '../../constants/languages';
 import NavigationsStrings from '../../constants/NavigationsStrings';
 import OTPTextView from 'react-native-otp-textinput';
 import { verticalScale } from '../../constants/Responsivedesign';
 import { useNavigation } from '@react-navigation/native';
-import action from '../../ReduxPart/action';
-OTPTextView
+import { signup } from '../../ReduxPart/action/ActionAuth';
+
 
 export default function OtpVerification({ route }) {
   const { phonenumber, data } = route.params || {};
   const navigation = useNavigation();
   const [otp, setOtp] = useState('');
-  const donebutton = () => {
-    navigation.navigate(NavigationsStrings.EDITPROFILE
 
-    );
+  const doneButton = () => {
+    navigation.navigate(NavigationsStrings.EDITPROFILE);
   };
 
-  console.log("route params", data, "route params ", route.params)
-
+  console.log("route params", data, "route params ", route.params);
 
   const handleChange = async (value) => {
     if (value.length >= 6) {
-      setOtp(value)
-
-      action.singnup({
+      setOtp(value);
+      await signup({
         ...data,
         _id: "i34392bdcsj"
-      })
+      });
     }
-  }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
         <Text style={styles.header}>
-          {/* ku6 bhi aa jaye */}
           {phonenumber ? phonenumber : 'Phone number not available'}
         </Text>
-        <TouchableOpacity style={styles.doneButton} onPress={donebutton}>
+        <TouchableOpacity style={styles.doneButton} onPress={doneButton}>
           <Text style={styles.doneText}>{strings.DONE}</Text>
         </TouchableOpacity>
       </View>
@@ -61,7 +58,7 @@ export default function OtpVerification({ route }) {
         />
       </View>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -106,7 +103,4 @@ const styles = StyleSheet.create({
     fontWeight: "900",
     color: "#34e2a1"
   }
-
-})
-
-// ye mera code hai
+});
