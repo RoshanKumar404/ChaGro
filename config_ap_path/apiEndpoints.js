@@ -1,2 +1,4 @@
-// constants/apiEndpoints.js
-export const SIGN_UP_API = 'https://your-api-endpoint.com/signup';
+import { getApiUrl } from "./urls";
+export const SIGN_UP_API = getApiUrl("/users/SignedIn");
+export const GET_USER = getApiUrl("/users/users");
+export const OTP_VERIFICATION_API = getApiUrl("/users/Otp");

@@ -25,13 +25,17 @@ export default function EditProfile() {
     try {
       const res = await signup(apiData);
       if (!!res?.data) {
-        navigation.navigate(NavigationsStrings.TABROUTES, { data: { ...state } });
+        console.log('Navigating to HomeScreen with data:', state);
+        navigation.navigate(NavigationsStrings.HOMEsCREEN, { data: { ...state } });
+      }
+      else {
+        console.error('No data returned from signup API');
       }
     } catch (error) {
-      console.log(error);
+      console.log(error ,"during signup");
     }
     console.log(apiData, "api-data");
-    return;
+    // return;
   };
 
   const addPicture = async () => {
